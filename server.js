@@ -9,7 +9,6 @@ import path from "path";
 const __dirname = path.resolve();
 
 // connect mongodb
-import { mongoConnect } from "./src/config/mongoDb.js";
 
 // middlewares
 app.use(express.json());
@@ -34,7 +33,7 @@ const dbLink =
     : process.env.MONGO_CLIENT;
 
 mongoose
-  .connect(process.env.MONGO_CLIENT)
+  .connect(dbLink)
   .then(() => {
     console.log("mongo conneted");
     app.listen(PORT, (err) => {
