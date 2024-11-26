@@ -9,6 +9,7 @@ import path from "path";
 const __dirname = path.resolve();
 
 // connect mongodb
+import { mongoConnect } from "./src/config/mongoDb.js";
 
 // middlewares
 app.use(express.json());
@@ -29,7 +30,7 @@ app.use("/", (req, res) => {
 
 const dbLink =
   process.env.NODE_ENV !== "production"
-    ? "mongodb://127.0.0.1:27017/nottododb"
+    ? "mongodb://localhost:27017/nottododb"
     : process.env.MONGO_CLIENT;
 
 mongoose
